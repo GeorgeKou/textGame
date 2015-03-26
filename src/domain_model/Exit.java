@@ -18,29 +18,29 @@ public class Exit {
     public Exit(Room room1, Room room2) {
         this.room1 = room1;
         this.room2 = room2;
+
+    }
+
+    void roomLocation(Location room1Location) {
+        if (this.room1Location == Location.EAST) {
+            room1.setExit(Location.WEST, this);
+            room2.setExit(Location.EAST, this);
+        } else if (this.room1Location == Location.WEST) {
+            room1.setExit(Location.EAST, this);
+            room2.setExit(Location.WEST, this);
+        } else if (this.room1Location == Location.NORTH) {
+            room1.setExit(Location.SOUTH, this);
+            room2.setExit(Location.NORTH, this);
+        } else if (this.room1Location == Location.SOUTH) {
+            room1.setExit(Location.NORTH, this);
+            room2.setExit(Location.SOUTH, this);
+        }
+
     }
 
     public void setLocation(Location room1Location) {
         this.room1Location = room1Location;
-        switch (room1Location) {
-            case EAST:
-                room1.setExit(Location.WEST, this);
-                room2.setExit(Location.EAST, this);
-                break;
-            case WEST:
-                room1.setExit(Location.EAST, this);
-                room2.setExit(Location.WEST, this);
-                break;
-            case NORTH:
-                room1.setExit(Location.SOUTH, this);
-                room2.setExit(Location.NORTH, this);
-                break;
-            case SOUTH:
-                room1.setExit(Location.NORTH, this);
-                room2.setExit(Location.SOUTH, this);
-                break;
-
-        }
+        roomLocation(this.room1Location = room1Location);
 
     }
 
