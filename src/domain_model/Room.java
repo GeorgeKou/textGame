@@ -38,6 +38,10 @@ public class Room {
     public Room() {
     }
 
+    void setLocation(Location location) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
     
     

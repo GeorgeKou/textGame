@@ -40,7 +40,8 @@ public class Exit {
 
     public void setLocation(Location room1Location) {
         this.room1Location = room1Location;
-        roomLocation(this.room1Location = room1Location);
+        roomLocation(room1Location);
+       
 
     }
 

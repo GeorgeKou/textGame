@@ -37,8 +37,43 @@ public class ExitTest {
     public void tearDown() {
     }
 
+    /**
+     * Test of roomLocation method, of class Exit.
+     */
     @Test
-    public void testSomeMethod() {
+    public void testRoomLocation() {
+        System.out.println("roomLocation");
+        Location room1Location = null;
+        Exit instance = null;
+        instance.roomLocation(room1Location);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setLocation method, of class Exit.
+     */
+    @Test
+    public void testSetLocation() {
+        System.out.println("setLocation");
+        Location room1Location = null;
+        Exit instance = null;
+        instance.setLocation(room1Location);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getOtherRoom method, of class Exit.
+     */
+    @Test
+    public void testGetOtherRoom() {
+        System.out.println("getOtherRoom");
+        Room room = null;
+        Exit instance = null;
+        Room expResult = null;
+        Room result = instance.getOtherRoom(room);
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

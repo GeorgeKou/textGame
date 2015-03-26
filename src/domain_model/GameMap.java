@@ -4,34 +4,54 @@ package domain_model;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 /**
  *
  * @author Georgios
  */
 public class GameMap extends Exit {
 
-    Room entranceR1 = new Room();
-    Room hallR2 = new Room();
-    Room innerGardednR3 = new Room();
-    Room livingRoomR4 = new Room();
-    Room mainTableR5 = new Room();
-    Room libraryR6 = new Room();
-    Room officeR7 = new Room();
-    Room basementR8 = new Room();
-    Room dungeonR9 = new Room();
-    Room hellR10 = new Room();
+    public static Room entranceR1 = new Room();
+    public static Room hallR2 = new Room();
+    public static Room innerGardednR3 = new Room();
+   public static Room livingRoomR4 = new Room();
+    public static Room mainTableR5 = new Room();
+   public static Room libraryR6 = new Room();
+   public static Room officeR7 = new Room();
+   public static Room basementR8 = new Room();
+    public static Room dungeonR9 = new Room();
+   public static Room hellR10 = new Room();
 
-    Exit exitFromR1 = new Exit(entranceR1, hallR2);
-    Location location;
-
-    public GameMap(Room entranceR1, Room hallR2) {
-        super(entranceR1, hallR2);
-        
-        entranceR1.setExit(Location.NORTH, exitFromR1);
-       
+    public GameMap(Room room1, Room room2) {
+        super(room1, room2);
     }
-   
-   
-           
+
+    //public GameMap(Room room1, Room room2) {
+    //super(room1, room2);
+    // }
+    //Exit exitFromEntramceToHall = new Exit(entranceR1, hallR2);
+    //Exit exitFromHallToLiivingRoom = new Exit(hallR2, livingRoomR4);
+    public static Exit exitFromRoom(Room room1, Room room2) {
+        Exit exitFrom = new Exit(room1, room2);
+
+        return exitFrom;
+    }
+
+    public static Exit ExitMap(Room room1, Room room2, Location room1location) {
+        //super(room1, room2);
+
+        entranceR1.setLocation(room1location);
+
+        entranceR1.setExit(room1location, exitFromRoom(entranceR1, hallR2));
+        hallR2.setExit(room1location, exitFromRoom(hallR2, livingRoomR4));
+        hallR2.setExit(room1location, exitFromRoom(hallR2, innerGardednR3));
+        livingRoomR4.setExit(room1location, exitFromRoom(livingRoomR4, mainTableR5));
+        mainTableR5.setExit(room1location, exitFromRoom(mainTableR5, officeR7));
+        mainTableR5.setExit(room1location, exitFromRoom(mainTableR5, libraryR6));
+
+        
+        System.out.println(room1.getExit(room1location));
+        return room1.getExit(room1location);
+    }
 
 }
